@@ -26,6 +26,7 @@ export default function Weather() {
             <img
               src="https://openweathermap.org/img/wn/01d@2x.png"
               id="current-icon"
+              alt="icon"
             />
           </span>
           <div className="current-desc">Rain</div>
