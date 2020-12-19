@@ -1,18 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles.css";
+import Form from "./Form.js";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Hay! It's for horses
-        </p>
-          Learn React
+      <Form />
+      <span id="footer">
+        <a href="https://github.com/amdawgs/New-Project" target="_blank">
+          Open source code{" "}
         </a>
-      </header>
+        by Amanda Davenport
+      </span>
     </div>
   );
 }
-
-export default App;

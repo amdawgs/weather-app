@@ -1,0 +1,9 @@
+.input-group-prepend {
+  max-width: 400px;
+  padding-top: 0px;
+  padding-bottom: 15px;
+}
+
+#refresh {
+  color: #ffffff;
+}
