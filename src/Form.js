@@ -20,7 +20,6 @@ export default function Form() {
           </button>
         </div>
         <Weather />
-        <span id="refresh">Last refreshed at 12:44 </span>
       </form>
     </div>
   );

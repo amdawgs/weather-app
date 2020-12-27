@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate"
 import axios from "axios";
 import "./weather.css";
 
@@ -9,6 +10,7 @@ export default function Weather() {
   let [description, setDescription] = useState(null);
   let [humidity, setHumidity] = useState(null);
   let [wind, setWind] = useState(null);
+  let [date, setDate] = useState(null);
   let [icon, setIcon] = useState(null);
 
   function displayWeather(response) {
@@ -20,6 +22,7 @@ export default function Weather() {
     setIcon(
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+    setDate(new Date(response.data.dt * 1000));
     setLoaded(true);
   }
 
@@ -45,7 +48,7 @@ export default function Weather() {
             {city}
           </div>
           <div className="current-humidity">Humidity: {humidity}%</div>
-          <div className="current-wind">Wind: {wind} km/h</div>
+          <div className="current-wind">Wind: {Math.round(wind)} km/h</div>
         </div>
         <div className="col-sm current-temp">
           <span id="current-temp">{Math.round(temperature)}°C</span>
@@ -68,6 +71,7 @@ export default function Weather() {
         </div>
       </div>
     </div>
+    <span id="refresh">Last refreshed on <FormattedDate date={date} /> </span>
     </div>
   );
   } 
