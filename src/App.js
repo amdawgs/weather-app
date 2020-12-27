@@ -5,6 +5,7 @@ import Form from "./Form.js";
 export default function App() {
   return (
     <div className="App">
+      <div className="container">
       <Form />
       <span id="footer">
         <a href="https://github.com/amdawgs/New-Project" target="_blank" rel="noreferrer">
@@ -12,6 +13,7 @@ export default function App() {
         </a>
         by Amanda Davenport
       </span>
+      </div>
     </div>
   );
 }
