@@ -10,13 +10,13 @@ export default function Form() {
         <div className="input-group-prepend">
           <div className="form-group"></div>
           <input
-            type="text"
+            type="search"
             class="form-control"
             id="searched-city"
             placeholder="Enter a city name"
           />
           <button type="submit" class="btn btn-primary mb-2 search-button w-25">
-            Search
+              Search
           </button>
         </div>
         <Weather />
