@@ -55,7 +55,7 @@ function formSubmitted(event) {
             {city}
           </div>
           <div className="current-humidity">Humidity: {humidity}%</div>
-          <div className="current-wind">Wind: {Math.round(wind)} km/h</div>
+          <div className="current-wind">Wind: {wind} km/h</div>
         </div>
         <div className="col-sm current-temp">
           <span id="current-temp">{Math.round(temperature)}°C</span>
