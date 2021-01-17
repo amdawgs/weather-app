@@ -1,12 +1,12 @@
 import React from "react";
 import "./styles.css";
-import Form from "./Form.js";
+import Weather from "./Weather"
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
-      <Form />
+      <Weather defaultCity="Tokyo"/>
       <span id="footer">
         <a href="https://github.com/amdawgs/New-Project" target="_blank" rel="noreferrer">
           Open source code{" "}

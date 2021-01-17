@@ -71,3 +71,14 @@
 .current-weather {
   padding-bottom: 20px;
 }
+
+#refresh {
+  font-size: 10px;
+  color: #ffffff;
+}
+
+.input-group-prepend {
+  max-width: 400px;
+  padding-top: 0px;
+  padding-bottom: 15px;
+}

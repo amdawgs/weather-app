@@ -3,8 +3,8 @@ import FormattedDate from "./FormattedDate"
 import axios from "axios";
 import "./weather.css";
 
-export default function Weather() {
-  let [city, setCity] = useState("");
+export default function Weather(props) {
+  const [city, setCity] = useState(props.defaultCity);
   let [loaded, setLoaded] = useState(false);
   let [temperature, setTemperature] = useState(null);
   let [description, setDescription] = useState(null);
@@ -26,23 +26,30 @@ export default function Weather() {
     setLoaded(true);
   }
 
+function search(){
+    let apiKey = "7c64e1e96bf3ce9fe563b6dcc5b1e9bf";
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(url).then(displayWeather);
+}
+
+function formSubmitted(event) {
+    event.preventDefault();
+    search();
+}
+
   function updateCity(event) {
     setCity(event.target.value);
   }
 
-  let form = (
-    <form>
-      <input type="search" onChange={updateCity} />
-      <input type="submit" value="Search" />
-    </form>
-  );
-
   if (loaded) {
     return (
-      <div>
-        {form}
-    <div className="current-weather">
-      <div className="row">
+     <div className="current-weather">
+    <div className="weather-block">
+        <form className="input-group-prepend" onSubmit={formSubmitted}>
+          <input type="search" placeholder="Enter a city name" className="form-control" onChange={updateCity}/>
+          <input type="submit" value="Search" className="btn btn-primary mb-2 search-button w-25" />
+          </form>
+    <div className="row">
         <div className="city-wrapper">
           <div className="col-sm current-city" id="display-city">
             {city}
@@ -70,18 +77,14 @@ export default function Weather() {
           <div className="current-desc">{description}</div>
         </div>
       </div>
+    <span id="refresh">Last refreshed on <FormattedDate date={date} /></span>
     </div>
-    <span id="refresh">Last refreshed on <FormattedDate date={date} /> </span>
     </div>
   );
   } 
   else 
   { 
-    let city = "Tokyo";
-    let apiKey = "7c64e1e96bf3ce9fe563b6dcc5b1e9bf";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(url).then(displayWeather);
-
+   search();
     return "Loading..."
   }
 }
